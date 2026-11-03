@@ -3,117 +3,614 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anar Media | anarmedia.mn</title>
+<meta name="theme-color" content="#050505">
+<title>ANAR MEDIA.MN</title>
+<meta name="description" content="ANAR MEDIA - Таны хүсэл, бидний бүтээл.">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Serif:wght@400;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #fff7fa;
-  color: #49313f;
+:root {
+ --black:#050505;
+ --gold:#dcae48;
+ --gold2:#f8d78c;
+ --white:#fff;
+ --gray:#ccc;
 }
-header {
-  background: #d94f88;
-  color: white;
-  text-align: center;
-  padding: 45px 15px;
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+ background:var(--black);
+ color:white;
+ font-family:'Noto Sans',sans-serif;
 }
-header h1 { font-size: 38px; margin: 0; }
-header p { font-size: 17px; }
-nav {
-  text-align: center;
-  padding: 15px;
-  background: white;
+
+a{text-decoration:none;color:inherit}
+
+.container{
+ width:92%;
+ max-width:1500px;
+ margin:auto;
 }
-nav a {
-  color: #d94f88;
-  text-decoration: none;
-  margin: 10px;
-  font-weight: bold;
+
+/* HEADER */
+
+header{
+ background:#050505;
+ border-bottom:1px solid #9b7128;
+ position:sticky;
+ top:0;
+ z-index:1000;
 }
-main {
-  max-width: 900px;
-  margin: 35px auto;
-  padding: 20px;
-  text-align: center;
+
+.navbar{
+ min-height:100px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:25px;
 }
-h2 { color: #d94f88; }
-.services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap: 20px;
-  margin-top: 30px;
+
+.logo img{
+ width:340px;
+ max-width:100%;
+ height:auto;
+ display:block;
+ background:#fff;
+ padding:3px;
+ border-radius:3px;
 }
-.card {
-  background: white;
-  padding: 30px 20px;
-  border-radius: 18px;
-  box-shadow: 0 3px 15px #eacbd8;
+
+.nav-links{
+ display:flex;
+ align-items:center;
+ gap:35px;
+ list-style:none;
 }
-.card h3 { color: #d94f88; }
-.contact {
-  background: #f9dce9;
-  padding: 30px;
-  border-radius: 18px;
-  margin-top: 35px;
+
+.nav-links a{
+ font-size:15px;
+ font-weight:600;
+ transition:.3s;
 }
-footer {
-  background: #d94f88;
-  color: white;
-  text-align: center;
-  padding: 20px;
+
+.nav-links a:hover{color:var(--gold)}
+
+.call-top{
+ border:2px solid var(--gold);
+ border-radius:30px;
+ padding:12px 24px;
+ color:var(--gold);
+ white-space:nowrap;
+ font-weight:700;
+}
+
+.menu-btn{
+ display:none;
+ background:none;
+ border:0;
+ color:var(--gold);
+ font-size:30px;
+ cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+ position:relative;
+ min-height:330px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ overflow:hidden;
+ background:
+ radial-gradient(ellipse at 50% 50%,#352514 0%,#17110a 40%,#050505 80%);
+ border-bottom:1px solid #79551d;
+}
+
+.hero:before,
+.hero:after{
+ content:"";
+ position:absolute;
+ width:450px;
+ height:450px;
+ border:1px solid #a77a32;
+ border-radius:50%;
+ filter:blur(2px);
+ opacity:.25;
+}
+
+.hero:before{
+ left:-350px;
+ top:20px;
+}
+
+.hero:after{
+ right:-350px;
+ bottom:-150px;
+}
+
+.hero-content{
+ position:relative;
+ z-index:2;
+ padding:45px 15px;
+}
+
+.hero-label{
+ color:var(--gold);
+ letter-spacing:5px;
+ font-family:'Noto Serif',serif;
+ font-size:17px;
+ margin-bottom:12px;
+}
+
+.gold-divider{
+ width:100px;
+ height:2px;
+ background:var(--gold);
+ margin:0 auto 18px;
+}
+
+.hero h1{
+ font-family:'Noto Serif',serif;
+ font-size:clamp(40px,7vw,82px);
+ letter-spacing:3px;
+ line-height:1.2;
+}
+
+.hero h1 span{color:var(--gold)}
+
+.hero p{
+ font-size:21px;
+ color:#eee;
+ margin:12px 0 25px;
+}
+
+.btn{
+ display:inline-block;
+ background:linear-gradient(135deg,#f6ce72,#d69d2d);
+ color:#111;
+ padding:13px 30px;
+ border-radius:30px;
+ font-weight:700;
+ transition:.3s;
+}
+
+.btn:hover{
+ transform:translateY(-3px);
+ box-shadow:0 5px 20px #dcae4850;
+}
+
+.btn-outline{
+ background:transparent;
+ color:var(--gold);
+ border:2px solid var(--gold);
+ margin-left:12px;
+}
+
+/* SERVICES */
+
+.services{
+ padding:35px 0;
+ background:linear-gradient(180deg,#0b0b0b,#15110b);
+}
+
+.section-title{
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ gap:25px;
+ margin-bottom:25px;
+}
+
+.section-title:before,
+.section-title:after{
+ content:"";
+ height:2px;
+ width:100px;
+ background:var(--gold);
+}
+
+.section-title h2{
+ color:var(--gold);
+ font-family:'Noto Serif',serif;
+ font-size:27px;
+ text-align:center;
+ white-space:nowrap;
+}
+
+.service-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:22px;
+}
+
+.service-card{
+ display:grid;
+ grid-template-columns:40% 60%;
+ align-items:center;
+ background:linear-gradient(135deg,#1a1a1a,#080808);
+ border:1.5px solid #b38432;
+ border-radius:15px;
+ overflow:hidden;
+ min-height:220px;
+ transition:.3s;
+}
+
+.service-card:hover{
+ transform:translateY(-5px);
+ border-color:#ffe0a0;
+ box-shadow:0 8px 30px #dcae4820;
+}
+
+.service-card img{
+ width:100%;
+ height:220px;
+ object-fit:cover;
+}
+
+.service-content{
+ padding:15px;
+}
+
+.service-content h3{
+ color:var(--gold);
+ font-family:'Noto Serif',serif;
+ font-size:19px;
+ margin-bottom:10px;
+}
+
+.service-content p{
+ color:#ddd;
+ font-size:14px;
+ line-height:1.6;
+}
+
+.service-content a{
+ display:inline-block;
+ margin-top:15px;
+ color:var(--gold);
+ border:1px solid var(--gold);
+ border-radius:25px;
+ padding:7px 16px;
+ font-size:13px;
+ font-weight:600;
+}
+
+/* CONTACT */
+
+.contact{
+ position:relative;
+ text-align:center;
+ padding:35px 15px;
+ border-top:1px solid #926c29;
+ background:
+ radial-gradient(ellipse at center,#302213,#090909 70%);
+}
+
+.contact-title{
+ color:var(--gold);
+ font-family:'Noto Serif',serif;
+ font-size:26px;
+ margin-bottom:10px;
+}
+
+.contact-flex{
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ flex-wrap:wrap;
+ gap:35px;
+}
+
+.phone-circle{
+ width:85px;
+ height:85px;
+ border:3px solid var(--gold);
+ border-radius:50%;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:43px;
+ color:var(--gold);
+}
+
+.phone-number{
+ color:var(--gold2);
+ font-family:'Montserrat',sans-serif;
+ font-weight:800;
+ font-size:clamp(35px,6vw,65px);
+ letter-spacing:2px;
+}
+
+.contact-description{
+ color:#ddd;
+ font-size:14px;
+ margin-top:5px;
+}
+
+.contact-brand{
+ margin-top:20px;
+ color:#eee;
+ letter-spacing:5px;
+ font-family:'Noto Serif',serif;
+ font-size:16px;
+}
+
+/* FOOTER */
+
+footer{
+ padding:15px;
+ text-align:center;
+ background:#050505;
+ border-top:1px solid #76551e;
+ color:#aaa;
+ font-size:13px;
+}
+
+footer span{color:var(--gold)}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+ .navbar{min-height:80px}
+ .logo img{width:230px}
+ .nav-links{gap:15px}
+ .nav-links a{font-size:13px}
+ .call-top{padding:9px 13px}
+ .service-grid{grid-template-columns:1fr}
+ .service-card{max-width:650px;width:100%;margin:auto}
+}
+
+@media(max-width:700px){
+ .navbar{min-height:75px}
+ .logo img{width:200px}
+ .menu-btn{display:block}
+ .call-top{display:none}
+
+ .nav-links{
+  display:none;
+  position:absolute;
+  top:75px;
+  left:0;
+  width:100%;
+  background:#101010;
+  flex-direction:column;
+  padding:25px;
+  border-bottom:1px solid var(--gold);
+  gap:22px;
+ }
+
+ .nav-links.active{display:flex}
+
+ .hero{min-height:350px}
+ .hero-label{font-size:12px;letter-spacing:3px}
+ .hero h1{font-size:40px}
+ .hero p{font-size:15px}
+
+ .section-title h2{font-size:21px}
+ .section-title:before,
+ .section-title:after{width:35px}
+
+ .service-card{
+  grid-template-columns:38% 62%;
+  min-height:185px;
+ }
+
+ .service-card img{height:185px}
+ .service-content{padding:12px}
+ .service-content h3{font-size:16px}
+ .service-content p{font-size:12px}
+ .service-content a{font-size:12px;padding:6px 12px}
+
+ .phone-circle{width:65px;height:65px;font-size:32px}
+ .contact-flex{gap:15px}
+ .contact-description{font-size:12px}
+ .contact-brand{font-size:12px}
 }
 </style>
 </head>
+
 <body>
 
 <header>
-  <h1>ANAR MEDIA</h1>
-  <p>Таны хүсэл, бидний бүтээл</p>
-  <p>www.anarmedia.mn</p>
+<div class="container navbar">
+
+<a href="#home" class="logo">
+<img src="anar-logo.jpg" alt="ANAR MEDIA.MN">
+</a>
+
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<ul class="nav-links" id="navLinks">
+<li><a href="#home" onclick="closeMenu()">Нүүр</a></li>
+<li><a href="#about" onclick="closeMenu()">Бидний тухай</a></li>
+<li><a href="#services" onclick="closeMenu()">Үйлчилгээ</a></li>
+<li><a href="#contact" onclick="closeMenu()">Холбоо барих</a></li>
+</ul>
+
+<a href="tel:72117119" class="call-top">☎ 72117119</a>
+
+</div>
 </header>
 
-<nav>
-  <a href="#home">Нүүр</a>
-  <a href="#services">Үйлчилгээ</a>
-  <a href="#contact">Холбоо барих</a>
-</nav>
+<main>
 
-<main id="home">
-  <h2>Тавтай морилно уу!</h2>
-  <p>
-    Anar Media цахим хуудсаар дамжуулан
-    танд зориулсан онцгой үйлчилгээг хүргэж байна.
-  </p>
+<!-- НҮҮР -->
 
-  <div class="services" id="services">
-    <div class="card">
-      <h3>🌸 Цэцэгт мэндчилгээ</h3>
-      <p>Хайртай дотнын хүмүүстээ сэтгэлийн мэндчилгээ хүргээрэй.</p>
-    </div>
+<section class="hero" id="home">
+<div class="hero-content">
 
-    <div class="card">
-      <h3>✨ Тусгай үйлчилгээ</h3>
-      <p>Танд зориулсан онцгой захиалгат үйлчилгээ.</p>
-    </div>
+<div class="hero-label">
+ТАНЫ ХҮСЭЛ, БИДНИЙ БҮТЭЭЛ
+</div>
 
-    <div class="card">
-      <h3>🎤 Ярилцлагын захиалга</h3>
-      <p>Ярилцлагын захиалгаа бидэнд илгээгээрэй.</p>
-    </div>
-  </div>
+<div class="gold-divider"></div>
 
-  <div class="contact" id="contact">
-    <h2>Холбоо барих</h2>
-    <p>Захиалга болон дэлгэрэнгүй мэдээллийг чатаар аваарай.</p>
-    <p><strong>ANAR MEDIA</strong></p>
-    <p>www.anarmedia.mn</p>
-  </div>
+<h1>ANAR <span>MEDIA.MN</span></h1>
+
+<p>Онцгой мөч бүрийг үнэ цэнтэй болгоно.</p>
+
+<a href="#services" class="btn">Үйлчилгээ үзэх ▶</a>
+<a href="#contact" class="btn btn-outline">Холбоо барих ☎</a>
+
+</div>
+</section>
+
+<!-- БИДНИЙ ТУХАЙ -->
+
+<section id="about" style="padding:45px 15px;background:#101010">
+<div class="container" style="text-align:center">
+
+<div class="section-title">
+<h2>БИДНИЙ ТУХАЙ</h2>
+</div>
+
+<p style="max-width:800px;margin:auto;color:#ccc">
+ANAR MEDIA нь таны хүсэл, санааг бүтээл болгон
+хүргэх зорилготой цахим мэдээлэл, үйлчилгээний
+платформ юм. Бид цэцэгт мэндчилгээ, мэдээ мэдээлэл,
+ярилцлагаар дамжуулан танд онцгой контент хүргэнэ.
+</p>
+
+</div>
+</section>
+
+<!-- ҮЙЛЧИЛГЭЭ -->
+
+<section class="services" id="services">
+
+<div class="container">
+
+<div class="section-title">
+<h2>БИДНИЙ ҮЙЛЧИЛГЭЭ</h2>
+</div>
+
+<div class="service-grid">
+
+<!-- ЦЭЦЭГТ МЭНДЧИЛГЭЭ -->
+
+<div class="service-card">
+
+<img
+src="https://images.unsplash.com/photo-1494972308805-463bc619d34e?w=600"
+alt="Цэцэгт мэндчилгээ"
+loading="lazy">
+
+<div class="service-content">
+<h3>🌹 Цэцэгт мэндчилгээ</h3>
+<p>
+Хайртай дотнын хүмүүстээ сэтгэлийн
+мэндчилгээгээ онцгой байдлаар хүргээрэй.
+</p>
+<a href="#contact">Захиалах →</a>
+</div>
+
+</div>
+
+<!-- МЭДЭЭ МЭДЭЭЛЭЛ -->
+
+<div class="service-card">
+
+<img
+src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600"
+alt="Мэдээ мэдээлэл"
+loading="lazy">
+
+<div class="service-content">
+<h3>📰 Мэдээ мэдээлэл</h3>
+<p>
+Сонирхолтой мэдээ, мэдээлэл,
+шинэ содон нийтлэлүүдийг хүлээн аваарай.
+</p>
+<a href="#contact">Дэлгэрэнгүй →</a>
+</div>
+
+</div>
+
+<!-- ЯРИЛЦЛАГА -->
+
+<div class="service-card">
+
+<img
+src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600"
+alt="Ярилцлага"
+loading="lazy">
+
+<div class="service-content">
+<h3>🎙 Ярилцлага</h3>
+<p>
+Хүмүүсийн түүх, үзэл бодол,
+бүтээл, сонирхолтой ярилцлагууд.
+</p>
+<a href="#contact">Дэлгэрэнгүй →</a>
+</div>
+
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ХОЛБОО БАРИХ -->
+
+<section class="contact" id="contact">
+
+<div class="contact-title">
+ХОЛБОО БАРИХ
+</div>
+
+<div class="contact-flex">
+
+<div class="phone-circle">☎</div>
+
+<div>
+<a href="tel:72117119" class="phone-number">
+72117119
+</a>
+
+<div class="contact-description">
+Захиалга болон дэлгэрэнгүй мэдээллийг авахыг хүсвэл холбогдоорой.
+</div>
+</div>
+
+<a href="tel:72117119" class="btn">
+ШУУД ЗАЛГАХ ☎
+</a>
+
+</div>
+
+<div class="contact-brand">
+◎ WWW.ANARMEDIA.MN
+</div>
+
+</section>
+
 </main>
 
 <footer>
-  © 2026 ANAR MEDIA. Бүх эрх хуулиар хамгаалагдсан.
+© <span id="year"></span>
+<span>ANAR MEDIA.MN</span>.
+Бүх эрх хуулиар хамгаалагдсан.
 </footer>
+
+<script>
+function toggleMenu(){
+ document.getElementById('navLinks').classList.toggle('active');
+}
+
+function closeMenu(){
+ document.getElementById('navLinks').classList.remove('active');
+}
+
+document.getElementById('year').textContent =
+new Date().getFullYear();
+</script>
 
 </body>
 </html>
+Compose

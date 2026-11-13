@@ -3,75 +3,311 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AnarMedia.mn | Түр засвартай</title>
-<meta name="description" content="AnarMedia.mn сайт түр засвартай байна.">
+<meta name="theme-color" content="#050505">
+<title>ANAR MEDIA.MN</title>
+<meta name="description" content="ANAR MEDIA - Таны хүсэл, бидний бүтээл.">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Serif:wght@400;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-* {
-  box-sizing: border-box;
+:root {
+ --black:#050505;
+ --gold:#dcae48;
+ --gold2:#f8d78c;
+ --white:#fff;
+ --gray:#ccc;
 }
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 25px;
-  font-family: Arial, sans-serif;
-  color: white;
-  text-align: center;
-  background: linear-gradient(135deg,#071629,#102d48,#071629);
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+ background:var(--black);
+ color:white;
+ font-family:'Noto Sans',sans-serif;
 }
-.container {
-  max-width: 650px;
+
+a{text-decoration:none;color:inherit}
+
+.container{
+ width:92%;
+ max-width:1500px;
+ margin:auto;
 }
-.logo {
-  font-size: 36px;
-  font-weight: 900;
-  letter-spacing: 3px;
-  color: #e8c878;
+
+/* HEADER */
+
+header{
+ background:#050505;
+ border-bottom:1px solid #9b7128;
+ position:sticky;
+ top:0;
+ z-index:1000;
 }
-.line {
-  width: 75px;
-  height: 3px;
-  background: #e8c878;
-  margin: 25px auto;
+
+.navbar{
+ min-height:100px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:25px;
 }
-.gear {
-  font-size: 75px;
-  margin: 25px 0;
+
+.logo img {
+  width: auto;
+  max-width: 100%;
+  height: 45px; /* Логоны өндрийг утасны дэлгэцэнд тохируулав */
+  display: block;
+  background: transparent; /* Цагаан дэвсгэрийг арилгаж тунгалаг болгов */
+  padding: 0; /* Илүүдэл зайг устгав */
 }
-h1 {
-  font-size: 30px;
-  line-height: 1.4;
+
+
+.nav-links{
+ display:flex;
+ align-items:center;
+ gap:35px;
+ list-style:none;
 }
-p {
-  color: #c8d5e2;
-  font-size: 17px;
-  line-height: 1.8;
+
+.nav-links a{
+ font-size:15px;
+ font-weight:600;
+ transition:.3s;
 }
-.footer {
-  margin-top: 45px;
-  color: #e8c878;
-  font-size: 14px;
+
+.nav-links a:hover{color:var(--gold)}
+
+.call-top{
+ border:2px solid var(--gold);
+ border-radius:30px;
+ padding:12px 24px;
+ color:var(--gold);
+ white-space:nowrap;
+ font-weight:700;
 }
-</style>
-</head>
-<body>
-<div class="container">
-  <div class="logo">ANARMEDIA.MN</div>
-  <div class="line"></div>
-  <div class="gear">⚙️</div>
-  <h1>БИД ТҮР ЗАСВАР ХИЙЖ БАЙНА</h1>
-  <p>
-    Танд илүү чанартай, шинэчлэгдсэн
-    мэдээ мэдээллийн үйлчилгээг хүргэхээр
-    ажиллаж байна.
-  </p>
-  <p>Тун удахгүй эргэн уулзъя.</p>
-  <div class="footer">
-    © 2026 ANARMEDIA.MN<br>
-    Мэдээллийн эрх чөлөө • Байгаль орчны хариуцлага
-  </div>
-</div>
-</body>
-</html>
+
+.menu-btn{
+ display:none;
+ background:none;
+ border:0;
+ color:var(--gold);
+ font-size:30px;
+ cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+ position:relative;
+ min-height:330px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ overflow:hidden;
+ background:
+ radial-gradient(ellipse at 50% 50%,#352514 0%,#17110a 40%,#050505 80%);
+ border-bottom:1px solid #79551d;
+}
+
+.hero:before,
+.hero:after{
+ content:"";
+ position:absolute;
+ width:450px;
+ height:450px;
+ border:1px solid #a77a32;
+ border-radius:50%;
+ filter:blur(2px);
+ opacity:.25;
+}
+
+.hero:before{
+ left:-350px;
+ top:20px;
+}
+
+.hero:after{
+ right:-350px;
+ bottom:-150px;
+}
+
+.hero-content{
+ position:relative;
+ z-index:2;
+ padding:45px 15px;
+}
+
+.hero-label{
+ color:var(--gold);
+ letter-spacing:5px;
+ font-family:'Noto Serif',serif;
+ font-size:17px;
+ margin-bottom:12px;
+}
+
+.gold-divider{
+ width:100px;
+ height:2px;
+ background:var(--gold);
+ margin:0 auto 18px;
+}
+
+.hero h1{
+ font-family:'Noto Serif',serif;
+ font-size:clamp(40px,7vw,82px);
+ letter-spacing:3px;
+ line-height:1.2;
+}
+
+.hero h1 span{color:var(--gold)}
+
+.hero p{
+ font-size:21px;
+ color:#eee;
+ margin:12px 0 25px;
+}
+
+.btn{
+ display:inline-block;
+ background:linear-gradient(135deg,#f6ce72,#d69d2d);
+ color:#111;
+ padding:13px 30px;
+ border-radius:30px;
+ font-weight:700;
+ transition:.3s;
+}
+
+.btn:hover{
+ transform:translateY(-3px);
+ box-shadow:0 5px 20px #dcae4850;
+}
+
+.btn-outline{
+ background:transparent;
+ color:var(--gold);
+ border:2px solid var(--gold);
+ margin-left:12px;
+}
+
+/* SERVICES */
+
+.services{
+ padding:35px 0;
+ background:linear-gradient(180deg,#0b0b0b,#15110b);
+}
+
+.section-title{
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ gap:25px;
+ margin-bottom:25px;
+}
+
+.section-title:before,
+.section-title:after{
+ content:"";
+ height:2px;
+ width:100px;
+ background:var(--gold);
+}
+
+.section-title h2{
+ color:var(--gold);
+ font-family:'Noto Serif',serif;
+ font-size:27px;
+ text-align:center;
+ white-space:nowrap;
+}
+
+.service-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:22px;
+}
+
+.service-card{
+ display:grid;
+ grid-template-columns:40% 60%;
+ align-items:center;
+ background:linear-gradient(135deg,#1a1a1a,#080808);
+ border:1.5px solid #b38432;
+ border-radius:15px;
+ overflow:hidden;
+ min-height:220px;
+ transition:.3s;
+}
+
+.service-card:hover{
+ transform:translateY(-5px);
+ border-color:#ffe0a0;
+ box-shadow:0 8px 30px #dcae4820;
+}
+
+.service-card img{
+ width:100%;
+ height:220px;
+ object-fit:cover;
+}
+
+.service-content{
+ padding:15px;
+}
+
+.service-content h3{
+ color:var(--gold);
+ font-family:'Noto Serif',serif;
+ font-size:19px;
+ margin-bottom:10px;
+}
+
+.service-content p{
+ color:#ddd;
+ font-size:14px;
+ line-height:1.6;
+}
+
+.service-content a{
+ display:inline-block;
+ margin-top:15px;
+ color:var(--gold);
+ border:1px solid var(--gold);
+ border-radius:25px;
+ padding:7px 16px;
+ font-size:13px;
+ font-weight:600;
+}
+
+/* CONTACT */
+
+.contact{
+ position:relative;
+ text-align:center;
+ padding:35px 15px;
+ border-top:1px solid #926c29;
+ background:
+ radial-gradient(ellipse at center,#302213,#090909 70%);
+}
+
+.contact-title{
+ color:var(--gold);
+ font-family:'Noto Serif',serif;
+ font-size:26px;
+ margin-bottom:10px;
+}
+
+.contact-flex{
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ flex-wrap:wrap;
+ gap:35px;
+}
+
+.phone-circle{
+ width:85px;
+ height:85px;
+ bord

@@ -1,0 +1,45 @@
+
+name: Facebook Auto Sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  sync-facebook:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch Facebook posts
+        env:
+          PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+          PAGE_TOKEN: ${{ secrets.FACEBOOK_PAGE_ACCESS_TOKEN }}
+        run: |
+          mkdir -p data
+
+          curl --fail --silent --show-error \
+            --get "https://graph.facebook.com/v27.0/${PAGE_ID}/feed" \
+            --data-urlencode "access_token=${PAGE_TOKEN}" \
+            --data-urlencode "limit=25" \
+            --data-urlencode "fields=id,message,created_time,permalink_url,full_picture,attachments{media_type,media,url}" \
+            | jq '{updated_at: (now | todate), posts: (.data // [])}' \
+            > data/facebook-posts.json
+
+      - name: Save posts to repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/facebook-posts.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update Facebook news"
+            git push
+          else
+            echo "No changes to save"
+          fi
